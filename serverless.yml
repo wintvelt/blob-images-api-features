@@ -21,7 +21,6 @@ provider:
 
   environment:
     photoTable: ${file(./serverlessDomainConfig.js):photoTable.${self:provider.stage}}
-    votesIndex: votes-idx
 
   iamRoleStatements:
     - Effect: Allow
@@ -38,15 +37,39 @@ provider:
       Resource: "arn:aws:dynamodb:eu-central-1:*:*"
 
 functions:
-  publicGetInvite:
-    handler: handlersInvite/publicGetInvite.main
+  createFeature:
+    handler: handlers/create.main
     events:
       - http:
-          path: /{id}
+          path: /
+          method: post
+          cors: true
+          authorizer: aws_iam
+  listFeatures:
+    handler: handlers/listFeatures.main
+    events:
+      - http:
+          path: /
           method: get
           cors: true
           authorizer: aws_iam
-
+  updateFeature:
+    handler: handlers/update.main
+    events:
+      - http:
+          path: /{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+  upvoteFeature:
+    handler: handlers/upvote.main
+    events:
+      - http:
+          path: /{id}
+          method: post
+          cors: true
+          authorizer: aws_iam
+                                                
 custom:
   customDomain:
     domainName: ${file(./serverlessDomainConfig.js):domain.${self:provider.stage}}
