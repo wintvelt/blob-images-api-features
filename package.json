@@ -1,0 +1,30 @@
+{
+  "name": "blob-images-api-features",
+  "version": "1.0.0",
+  "description": "Blob images (new) features repo project",
+  "scripts": {
+    "test": "serverless-bundle test"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!blob-common)/",
+      "\\.pnp\\.[^\\/]+$"
+    ]
+  },
+  "author": "Wouter",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wintvelt/blob-images-api-features.git"
+  },
+  "devDependencies": {
+    "serverless-bundle": "2.0.0",
+    "serverless-domain-manager": "^4.2.3",
+    "serverless-dotenv-plugin": "^2.4.2",
+    "serverless-offline": "^5.12.1"
+  },
+  "dependencies": {
+    "blob-common": "^1.3.5",
+    "serverless": "^2.8.0"
+  }
+}
