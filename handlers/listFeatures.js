@@ -17,7 +17,7 @@ export const main = handler(async (event, context) => {
         let options = [];
         if (userIsOwner) options.push('edit');
         if (feat.votes <= process.env.maxVotes) options.push('vote');
-        return {            
+        return {
             ...cleanRecord(feat),
             userIsOwner,
             options

@@ -1,5 +1,5 @@
 import { handler } from "blob-common/core/handler";
-import { dbUpdateMulti, dynamoDb } from "blob-common/core/db";
+import { dbUpdateMulti } from "blob-common/core/db";
 import { getFeature } from "./helpers";
 
 export const main = handler(async (event, context) => {

@@ -11,4 +11,4 @@ export const listFeaturesQuery = () => {
 export const getFeature = async (featureId) => {
     const result = await dynamoDb.get({ PK: 'NFfeature', SK: featureId });
     return result.Item;
-}
+};
