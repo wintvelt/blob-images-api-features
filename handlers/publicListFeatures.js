@@ -18,7 +18,7 @@ export const main = handler(async (event, context) => {
     const isRegistered = !!userResult.Item;
     const features = featuresResult.Items;
     const cleanFeatures = features.map(feat => {
-        const userIsOwner = (userId === featuresResult.user?.SK);
+        const userIsOwner = (userId === feat.user?.SK);
         let options = [];
         if (userIsOwner) options.push('edit');
         if (feat.votes <= process.env.maxVotes && !userIsOwner && isRegistered) {

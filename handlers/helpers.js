@@ -9,10 +9,11 @@ export const listFeaturesQuery = () => {
 };
 
 export const getFeature = async (featureId) => {
-    const result = await dynamoDb.get({ PK: 'NFfeature', SK: featureId });
+    const result = await dynamoDb.get({ Key: { PK: 'NFfeature', SK: featureId } });
     return result.Item;
 };
 
 export const getUserQuery = (userId) => {
-    return dynamoDb.get({ PK: 'USER', SK: userId });
+    if (!userId) return {};
+    return dynamoDb.get({ Key: { PK: 'USER', SK: userId } });
 };
