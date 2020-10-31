@@ -45,8 +45,8 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
-  listFeatures:
-    handler: handlers/listFeatures.main
+  publicListFeatures:
+    handler: handlers/publicListFeatures.main
     events:
       - http:
           path: /
