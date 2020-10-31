@@ -31,6 +31,7 @@ export const main = handler(async (event, context) => {
         SK: featureId,
         title,
         description,
+        status: 'submitted',
         votes: 10,
         user,
         userId
