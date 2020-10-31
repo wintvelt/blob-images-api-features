@@ -15,4 +15,4 @@ export const getFeature = async (featureId) => {
 
 export const getUserQuery = (userId) => {
     return dynamoDb.get({ PK: 'USER', SK: userId });
-}
+};
