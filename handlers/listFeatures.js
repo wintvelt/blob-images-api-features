@@ -16,7 +16,7 @@ export const main = handler(async (event, context) => {
         const userIsOwner = (userId === featuresResult.user?.SK);
         let options = [];
         if (userIsOwner) options.push('edit');
-        if (feat.votes <= process.env.maxVotes) options.push('vote');
+        if (feat.votes <= process.env.maxVotes && !userIsOwner) options.push('vote');
         return {
             ...cleanRecord(feat),
             userIsOwner,
