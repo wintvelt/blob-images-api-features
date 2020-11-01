@@ -5,5 +5,5 @@ module.exports.domain = () => ({
 
 module.exports.photoTable = () => ({
     'dev': 'blob-images-photos-dev',
-    'prod': 'blob-images-photos'
+    'prod': 'blob-images-photos-prod'
 });
