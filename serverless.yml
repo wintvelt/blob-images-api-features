@@ -69,6 +69,14 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
+  deleteFeature:
+    handler: handlers/delete.main
+    events:
+      - http:
+          path: /{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
                                                 
 custom:
   customDomain:
