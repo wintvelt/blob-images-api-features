@@ -1,4 +1,4 @@
-import { handler } from "blob-common/core/handler";
+import { getUserFromEvent, handler } from "blob-common/core/handler";
 import { dbUpdateMulti } from "blob-common/core/db";
 import { getFeature, getUserQuery } from "./helpers";
 
