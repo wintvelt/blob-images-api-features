@@ -61,6 +61,14 @@ functions:
           method: put
           cors: true
           authorizer: aws_iam
+  getFeature:
+    handler: handlers/get.main
+    events:
+      - http:
+          path: /{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
   upvoteFeature:
     handler: handlers/upvote.main
     events:
