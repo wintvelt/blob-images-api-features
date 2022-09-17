@@ -13,7 +13,7 @@ plugins:
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   stage: ${opt:stage, 'dev'}
   region: eu-central-1
   tags:
@@ -22,19 +22,21 @@ provider:
   environment:
     photoTable: ${file(./serverlessDomainConfig.js):photoTable.${self:provider.stage}}
 
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:DescribeTable
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-        - dynamodb:DescribeStream
-        - dynamodb:ListStreams
-      Resource: "arn:aws:dynamodb:eu-central-1:*:*"
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:DescribeTable
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+            - dynamodb:DescribeStream
+            - dynamodb:ListStreams
+          Resource: "arn:aws:dynamodb:eu-central-1:*:*"
 
 functions:
   createFeature:
