@@ -87,6 +87,13 @@ functions:
           method: delete
           cors: true
           authorizer: aws_iam
+  createProblemPublic:
+    handler: handlersProblem/create.main
+    events:
+      - http:
+          path: /problem
+          method: post
+          cors: true
                                                 
 custom:
   customDomain:
